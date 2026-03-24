@@ -58,15 +58,16 @@ for (i in 1:K){
 earth <- cbind(x1, y1, z1)
 moon <- cbind(x2, y2, z2)
 
-# ## interactive 3dplot using rgl
-# plot3d(earth, xlab = "X coordinate", ylab = "Y coordinate", zlab = "Z coordinate",
-#        xlim =c(-1e9, 1e9), ylim = c(-1e9, 1e9), zlim = c(-1e9, 1e9), col = "gray",
-#        type = "l", lwd = 3, main = paste("Earth & Moon Orbit after ", K/24, "Days"))
-# lines3d(moon, col = "blue", lwd = 2)
-# 
-# # optional: mark current positions
-# points3d(tail(earth, 1), col = "blue", size = 8)
-# points3d(tail(moon, 1), col = "gray", size = 6)
+library(rgl)
+## interactive 3dplot using rgl
+plot3d(earth, xlab = "X coordinate", ylab = "Y coordinate", zlab = "Z coordinate",
+       xlim =c(-1e9, 1e9), ylim = c(-1e9, 1e9), zlim = c(-1e9, 1e9), col = "gray",
+       type = "l", lwd = 3, main = paste("Earth & Moon Orbit after ", K/24, "Days"))
+lines3d(moon, col = "blue", lwd = 2)
+
+# optional: mark current positions
+points3d(tail(earth, 1), col = "blue", size = 8)
+points3d(tail(moon, 1), col = "gray", size = 6)
 
 
 
@@ -97,9 +98,6 @@ plot_ly() %>%
       yaxis = list(range = c(-1e9, 1e9)),
       zaxis = list(range = c(-1e9, 1e9))
     ))
-
-
-
 
 
 
