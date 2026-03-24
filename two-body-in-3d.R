@@ -1,6 +1,8 @@
 
 library(scatterplot3d)
 library(rgl)
+library(rgl)
+
 
 G <- 6.6743e-11 ## gravitational constant: m^3 kg^-1 s^-2 
 delta_t <- 3600 ## time step: s
@@ -58,7 +60,6 @@ for (i in 1:K){
 earth <- cbind(x1, y1, z1)
 moon <- cbind(x2, y2, z2)
 
-library(rgl)
 ## interactive 3dplot using rgl
 plot3d(earth, xlab = "X coordinate", ylab = "Y coordinate", zlab = "Z coordinate",
        xlim =c(-1e9, 1e9), ylim = c(-1e9, 1e9), zlim = c(-1e9, 1e9), col = "gray",
@@ -70,7 +71,7 @@ points3d(tail(earth, 1), col = "blue", size = 8)
 points3d(tail(moon, 1), col = "gray", size = 6)
 
 
-
+## animation but bad
 # for (i in 1:nrow(earth)) {
 #   plot3d(earth[1:i,], col = "blue", type = "l", lwd = 3,
 #          xlim = c(-1e9, 1e9), ylim = c(-1e9, 1e9), zlim = c(-1e9, 1e9))
